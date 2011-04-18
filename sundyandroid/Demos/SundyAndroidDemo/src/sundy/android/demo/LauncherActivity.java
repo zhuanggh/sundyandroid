@@ -8,11 +8,14 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import sundy.android.demo.configration.CommonConstants;
+
 import android.app.ListActivity;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
@@ -21,19 +24,22 @@ public class LauncherActivity extends ListActivity {
     /** Called when the activity is first created. */
     @Override
     public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+        super.onCreate(savedInstanceState) ;
+        
         Intent intent = getIntent();
-        String path = intent.getStringExtra("com.example.android.apis.Path");
+        String path = intent.getStringExtra(CommonConstants.MAIN_LIST_VIEW_ITEMNAME);
         
         if (path == null) {
             path = "";
         }
-
+        
         setListAdapter(new SimpleAdapter(this, getData(path),
                 android.R.layout.simple_list_item_1, new String[] { "title" },
                 new int[] { android.R.id.text1 }));
         getListView().setTextFilterEnabled(true);
+        
     }
+    
     
     protected List getData(String prefix) {
         List<Map> myData = new ArrayList<Map>();
@@ -46,7 +52,6 @@ public class LauncherActivity extends ListActivity {
 
         if (null == list)
             return myData;
-
         String[] prefixPath;
         
         if (prefix.equals("")) {
@@ -107,7 +112,7 @@ public class LauncherActivity extends ListActivity {
     protected Intent browseIntent(String path) {
         Intent result = new Intent();
         result.setClass(this, LauncherActivity.class);
-        result.putExtra("com.example.android.apis.Path", path);
+        result.putExtra(CommonConstants.MAIN_LIST_VIEW_ITEMNAME, path);
         return result;
     }
 
@@ -121,7 +126,6 @@ public class LauncherActivity extends ListActivity {
     @Override
     protected void onListItemClick(ListView l, View v, int position, long id) {
         Map map = (Map) l.getItemAtPosition(position);
-
         Intent intent = (Intent) map.get("intent");
         startActivity(intent);
     }

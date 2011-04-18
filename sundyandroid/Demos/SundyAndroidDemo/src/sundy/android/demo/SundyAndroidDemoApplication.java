@@ -1,5 +1,5 @@
 /**
- * 
+ * Application of current instance management  . 
  */
 package sundy.android.demo;
 
