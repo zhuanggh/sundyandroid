@@ -2,4 +2,6 @@
 <resources>
     <string name="hello">Hello World, LauncherActivity!</string>
     <string name="app_name">SundyAndroidDemo</string>
+	<string name="subject_log">应用框架/其它/C11041401AAF_玩懂Log</string>
+	<string name="subject_process_lifecycle">应用框架/进程和线程/C11041701AAF_进程生命周期</string>
 </resources>
