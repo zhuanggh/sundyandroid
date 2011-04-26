@@ -2,7 +2,7 @@
 == dumpstate: 2011-01-11 17:12:39
 ========================================================
 
-Build: SCH-I500-eng 2.2.1 FROYO DL29 test-keys
+Build: ***-***-eng 2.2.1 FROYO DL29 test-keys
 Bootloader: unknown
 Radio: unknown
 Network: (unknown)
@@ -432,7 +432,7 @@ unevictable_pgs_mlockfreed 0
 01-11 17:10:22.209 D/        ( 9871): filesize = 63170
 01-11 17:10:22.209 D/        ( 9871): File SEEK Start Succes
 01-11 17:10:22.209 D/        ( 9871): PV_Wav_Parser::ReadData
-01-11 17:10:22.209 D/        ( 9871): Data Read = RIFFºö
+01-11 17:10:22.209 D/        ( 9871): Data Read = RIFFï¿½ï¿½
 01-11 17:10:22.209 D/        ( 9871): PV_Wav_Parser::ReadData
 01-11 17:10:22.209 D/        ( 9871): fmt  chunk  found
 01-11 17:10:22.209 D/        ( 9871): PV_Wav_Parser::ReadData
@@ -511,7 +511,7 @@ unevictable_pgs_mlockfreed 0
 01-11 17:10:22.287 D/        ( 9871): filesize = 63170
 01-11 17:10:22.287 D/        ( 9871): File SEEK Start Succes
 01-11 17:10:22.287 D/        ( 9871): PV_Wav_Parser::ReadData
-01-11 17:10:22.287 D/        ( 9871): Data Read = RIFFºö
+01-11 17:10:22.287 D/        ( 9871): Data Read = RIFFï¿½ï¿½
 01-11 17:10:22.287 D/        ( 9871): PV_Wav_Parser::ReadData
 01-11 17:10:22.287 D/        ( 9871): fmt  chunk  found
 01-11 17:10:22.287 D/        ( 9871): PV_Wav_Parser::ReadData
@@ -590,7 +590,7 @@ unevictable_pgs_mlockfreed 0
 01-11 17:10:22.366 D/        ( 9871): filesize = 63170
 01-11 17:10:22.366 D/        ( 9871): File SEEK Start Succes
 01-11 17:10:22.366 D/        ( 9871): PV_Wav_Parser::ReadData
-01-11 17:10:22.366 D/        ( 9871): Data Read = RIFFºö
+01-11 17:10:22.366 D/        ( 9871): Data Read = RIFFï¿½ï¿½
 01-11 17:10:22.366 D/        ( 9871): PV_Wav_Parser::ReadData
 01-11 17:10:22.366 D/        ( 9871): fmt  chunk  found
 01-11 17:10:22.366 D/        ( 9871): PV_Wav_Parser::ReadData
@@ -669,7 +669,7 @@ unevictable_pgs_mlockfreed 0
 01-11 17:10:22.436 D/        ( 9871): filesize = 63170
 01-11 17:10:22.436 D/        ( 9871): File SEEK Start Succes
 01-11 17:10:22.436 D/        ( 9871): PV_Wav_Parser::ReadData
-01-11 17:10:22.436 D/        ( 9871): Data Read = RIFFºö
+01-11 17:10:22.436 D/        ( 9871): Data Read = RIFFï¿½ï¿½
 01-11 17:10:22.436 D/        ( 9871): PV_Wav_Parser::ReadData
 01-11 17:10:22.436 D/        ( 9871): fmt  chunk  found
 01-11 17:10:22.436 D/        ( 9871): PV_Wav_Parser::ReadData
@@ -907,7 +907,7 @@ unevictable_pgs_mlockfreed 0
 01-11 17:10:22.721 D/        ( 9871): filesize = 120784
 01-11 17:10:22.721 D/        ( 9871): File SEEK Start Succes
 01-11 17:10:22.721 D/        ( 9871): PV_Wav_Parser::ReadData
-01-11 17:10:22.721 D/        ( 9871): Data Read = RIFFÈ×
+01-11 17:10:22.721 D/        ( 9871): Data Read = RIFFï¿½ï¿½
 01-11 17:10:22.721 D/        ( 9871): PV_Wav_Parser::ReadData
 01-11 17:10:22.721 D/        ( 9871): fmt  chunk  found
 01-11 17:10:22.721 D/        ( 9871): PV_Wav_Parser::ReadData
