@@ -32,7 +32,24 @@
 				<category android:name="android.intent.category.SAMPLE_CODE" />
 			</intent-filter>
 		</activity>
+		
+		<activity android:name=".processthread.ActivityWindowViewRelationship" android:label="@string/subject_process_activityrelation">
+			<intent-filter>
+				<action android:name="android.intent.action.MAIN" />
+				<category android:name="android.intent.category.SAMPLE_CODE" />
+			</intent-filter>
+		</activity>
+		
+		<activity android:name=".activity.MainTestActivity" android:label="@string/process_activitymaintest">
+			<intent-filter>
+				<action android:name="android.intent.action.MAIN" />
+				<category android:name="android.intent.category.SAMPLE_CODE" />
+			</intent-filter>
+		</activity>
+		
+		<service android:name=".service.LauncherService">			
+		</service>
     </application>
     <uses-sdk android:minSdkVersion="3" />
-
+	<uses-configuration android:reqTouchScreen="notouch" />
 </manifest> 
