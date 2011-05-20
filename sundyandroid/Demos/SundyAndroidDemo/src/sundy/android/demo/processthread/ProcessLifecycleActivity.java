@@ -13,9 +13,7 @@ import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
-import android.os.Handler;
 import android.util.Log;
-import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
 
@@ -41,17 +39,6 @@ public class ProcessLifecycleActivity extends Activity {
 		}
 	}
 	
-	@Override
-	public boolean onKeyUp(int keyCode, KeyEvent event) {
-		// TODO Auto-generated method stub
-		if(keyCode == KeyEvent.KEYCODE_HOME)
-		{
-			Log.i(CommonConstants.LOGCAT_TAG_NAME, "convertImportance(curRunningProcessInfo.importance)")  ;
-		}
-		
-		return super.onKeyUp(keyCode, event);
-	}
-
 	/**
 	 * 转换进程当前Level显示方式，讲int转为String
 	 * @param imp
@@ -76,6 +63,8 @@ public class ProcessLifecycleActivity extends Activity {
 			break ;
 		case RunningAppProcessInfo.IMPORTANCE_EMPTY:
 			returnStr = "IMPORTANCE_EMPTY" ;
+			break ;
+		default:
 			break ;
 			
 		}
@@ -108,8 +97,7 @@ public class ProcessLifecycleActivity extends Activity {
 			                dialog.cancel();
 			           }
 			       });
-			AlertDialog alert = builder.create();
-			return alert ;
+			//AlertDialog alert = builder.create();
 		}
 		
 		return super.onCreateDialog(id);
@@ -138,22 +126,14 @@ public class ProcessLifecycleActivity extends Activity {
 	protected void onPause() {
 		// TODO Auto-generated method stub
 		super.onPause();
-		//Log.i(CommonConstants.LOGCAT_TAG_NAME, convertImportance(curRunningProcessInfo.importance))  ;
+		Log.i(CommonConstants.LOGCAT_TAG_NAME, convertImportance(curRunningProcessInfo.importance))  ;
 	}
 
 	@Override
 	protected void onStop() {
 		// TODO Auto-generated method stub
 		super.onStop();
-		Handler handler = new Handler() ;
-		handler.postDelayed(new Runnable(){
-
-			public void run() {
-				// TODO Auto-generated method stub
-				Log.i(CommonConstants.LOGCAT_TAG_NAME, convertImportance(RunningAppProcessInfo.IMPORTANCE_BACKGROUND))  ;
-			}
-			
-		}, 3000)  ;
+		Log.i(CommonConstants.LOGCAT_TAG_NAME, convertImportance(curRunningProcessInfo.importance))  ;
 	}
 
 }
