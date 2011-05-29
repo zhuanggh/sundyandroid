@@ -47,9 +47,23 @@
 			</intent-filter>
 		</activity>
 		
+		<activity android:name=".processthread.ThreadConceptActivity" android:label="@string/process_threadconcept">
+			<intent-filter>
+				<action android:name="android.intent.action.MAIN" />
+				<category android:name="android.intent.category.SAMPLE_CODE" />
+			</intent-filter>
+		</activity>
+		
+		<activity android:name=".processthread.HandlerConceptActivity" android:label="@string/process_handlerconcept">
+			<intent-filter>
+				<action android:name="android.intent.action.MAIN" />
+				<category android:name="android.intent.category.SAMPLE_CODE" />
+			</intent-filter>
+		</activity>
+		
 		<service android:name=".service.LauncherService">			
 		</service>
     </application>
     <uses-sdk android:minSdkVersion="3" />
-	<uses-configuration android:reqTouchScreen="notouch" />
+
 </manifest> 
