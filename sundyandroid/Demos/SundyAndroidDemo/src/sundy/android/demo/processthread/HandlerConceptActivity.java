@@ -117,26 +117,30 @@ public class HandlerConceptActivity extends Activity {
 				}).start() ;*/
 				
 				//using handler thread to make handler (message queue)
-				HandlerThread handlerThread = new HandlerThread("handlerThread"){
-
+	
+				Runnable _runnable = new Runnable(){
 					@Override
 					public void run() {
 						// TODO Auto-generated method stub
 						ProcessCaculate() ;
-						/*Handler lab22Handler = new Handler(){
-
-							@Override
-							public void handleMessage(Message msg) {
-								// TODO Auto-generated method stub
-								super.handleMessage(msg);
-								Log.i(CommonConstants.LOGCAT_TAG_NAME, "Get the message: "+msg.getData().getString(HANDLER_KEY)+" by Child Thread Handler")  ;
-							}
-							
-						}  ;
-						lab22Handler.sendMessage(defineNewMessage("Lab22")) ;*/
 					}
-					
-				}.start() ;
+				} ;
+				
+				HandlerThread handlerThread = new HandlerThread("threadone");  
+		        handlerThread.start();  
+		        //Handler handler22 =  new Handler(handlerThread.getLooper());  
+		        //handler22.post(_runnable);
+		        new Handler(handlerThread.getLooper()){
+
+					@Override
+					public void handleMessage(Message msg) {
+						// TODO Auto-generated method stub
+						super.handleMessage(msg);
+						Log.i(CommonConstants.LOGCAT_TAG_NAME, "Get the message by Handler Thread")  ;
+					}
+		        	
+		        }.post(_runnable)  ;
+
 			}
 			
 		}) ;
