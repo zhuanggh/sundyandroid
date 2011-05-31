@@ -24,6 +24,7 @@ import android.widget.ImageView;
 public class ThreadConceptActivity extends Activity {
 
 	private ImageView mImageView = null ;
+	//The image url we are downloading from internet .
 	private final String IMAGE_URL = "http://www.lhzhang.org/image.axd?picture=/201102/46613566.jpg" ;
 	
 	//Async private class 
@@ -47,7 +48,7 @@ public class ThreadConceptActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		this.setContentView(R.layout.layout_threadconcept)  ;
 		mImageView = (ImageView)this.findViewById(R.id.imageThreadConcept) ;
-		//load image in main thread 
+		//1. load image in main thread 
 		findViewById(R.id.buttonWorkThread).setOnClickListener(new OnClickListener(){
 			
 			@Override
@@ -56,7 +57,7 @@ public class ThreadConceptActivity extends Activity {
 				Drawable drawable = loadImageFromNetwork(IMAGE_URL);
 	            mImageView.setImageDrawable(drawable) ;
 			}})  ;
-		//load image in new thread , but set imageview not safe thread 
+		//2. load image in new thread , but set imageview not thread  safety
 		findViewById(R.id.buttonWorkThread2).setOnClickListener(new OnClickListener(){
 			
 			@Override
@@ -68,14 +69,16 @@ public class ThreadConceptActivity extends Activity {
 					public void run() {
 						// TODO Auto-generated method stub
 						Drawable drawable = loadImageFromNetwork(IMAGE_URL);
-			            mImageView.setImageDrawable(drawable) ;
+						mImageView.setImageDrawable(drawable) ;
+							
+						
 					}
 					
 				}).start()  ;
 				
 			}})  ;
 		
-		//load image in new thread , but set imageview by View.post(Runnable) 
+		//3. load image in new thread , but set imageview by View.post(Runnable) 
 		findViewById(R.id.buttonWorkThread3).setOnClickListener(new OnClickListener(){
 			
 			@Override
@@ -99,7 +102,7 @@ public class ThreadConceptActivity extends Activity {
 				
 			}})  ;
 		
-		//load image in new thread , but set imageview by View.post(Runnable) 
+		//4. load image in new thread , but set imageview by AsyncTask 
 		findViewById(R.id.buttonWorkThread4).setOnClickListener(new OnClickListener(){
 			
 			@Override
@@ -110,6 +113,7 @@ public class ThreadConceptActivity extends Activity {
 			}})  ;
 	}
 	
+	// the Drawable loadImage main function 
 	private Drawable loadImageFromNetwork(String imageUrl)
 	{
 		Drawable drawable = null;
