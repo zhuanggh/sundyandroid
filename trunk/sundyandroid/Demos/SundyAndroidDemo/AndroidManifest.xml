@@ -61,6 +61,13 @@
 			</intent-filter>
 		</activity>
 		
+		<activity android:name=".processthread.AsyncTaskTestActivity" android:label="@string/process_asynctask">
+			<intent-filter>
+				<action android:name="android.intent.action.MAIN" />
+				<category android:name="android.intent.category.SAMPLE_CODE" />
+			</intent-filter>
+		</activity>
+		
 		<service android:name=".service.LauncherService">			
 		</service>
     </application>
