@@ -9,11 +9,13 @@ import java.util.List;
 import java.util.Map;
 
 import sundy.android.demo.configration.CommonConstants;
+
 import android.app.ListActivity;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;

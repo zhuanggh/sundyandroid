@@ -3,9 +3,9 @@
  */
 package sundy.android.demo;
 
-import sundy.android.demo.configration.CommonConstants;
 import android.app.Application;
 import android.util.Log;
+import sundy.android.demo.configration.*;
 
 /**
  * @author sundy
