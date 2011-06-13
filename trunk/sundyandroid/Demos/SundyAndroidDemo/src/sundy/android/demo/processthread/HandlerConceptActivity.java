@@ -26,6 +26,34 @@ public class HandlerConceptActivity extends Activity {
 	Handler mainHandler1 ;
 	Handler mainHandler2 ;
 	
+	//define one HandlerThread 
+	class SubHandlerThread extends HandlerThread{
+
+		public SubHandlerThread(String name) {
+			super(name);
+			// TODO Auto-generated constructor stub
+		}
+
+		@Override
+		public void run() {
+			// TODO Auto-generated method stub
+			ProcessCaculate() ;
+			Looper lp = this.getLooper() ;
+
+			new Handler(lp){
+				
+				@Override
+				public void handleMessage(Message msg) {
+					// TODO Auto-generated method stub
+					super.handleMessage(msg);
+					Log.i(CommonConstants.LOGCAT_TAG_NAME, "Get the message by HandlerThread "+ msg.getData().getString(HANDLER_KEY))  ;
+				}
+	        	
+	        }.sendMessage(defineNewMessage("Lab2.2"))  ;
+		}
+		
+	}
+	
 	//Caculate the process .
 	long ProcessCaculate()
 	{
@@ -89,6 +117,7 @@ public class HandlerConceptActivity extends Activity {
 						// TODO Auto-generated method stub
 						ProcessCaculate() ;
 						mainHandler1.sendMessage(defineNewMessage("Lab1")) ;
+						//try to use mainHanlder2 to send meesage and receive . 
 						//mainHandler2.sendMessage(defineNewMessage("Lab1")) ;
 						
 					}
@@ -98,13 +127,13 @@ public class HandlerConceptActivity extends Activity {
 			
 		}) ;
 		
-		//Handler Lab2
+		//Handler Lab2.1 , in new thread create handler send message .
 		findViewById(R.id.buttonHandlerLab2).setOnClickListener(new OnClickListener(){
 
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
-				/*new Thread(new Runnable(){
+				new Thread(new Runnable(){
 
 					@Override
 					public void run() {
@@ -114,39 +143,28 @@ public class HandlerConceptActivity extends Activity {
 						lab2Handler.sendMessage(defineNewMessage("Lab2")) ;
 					}
 					
-				}).start() ;*/
-				
-				//using handler thread to make handler (message queue)
-	
-				Runnable _runnable = new Runnable(){
-					@Override
-					public void run() {
-						// TODO Auto-generated method stub
-						ProcessCaculate() ;
-					}
-				} ;
-				
-				HandlerThread handlerThread = new HandlerThread("threadone");  
-		        handlerThread.start();  
-		        //Handler handler22 =  new Handler(handlerThread.getLooper());  
-		        //handler22.post(_runnable);
-		        new Handler(handlerThread.getLooper()){
+				}).start() ;
+			}
+		}) ;
+		
+		
+		//Handler Lab2.2
+		findViewById(R.id.buttonHandlerLab3).setOnClickListener(new OnClickListener(){
 
-					@Override
-					public void handleMessage(Message msg) {
-						// TODO Auto-generated method stub
-						super.handleMessage(msg);
-						Log.i(CommonConstants.LOGCAT_TAG_NAME, "Get the message by Handler Thread")  ;
-					}
-		        	
-		        }.post(_runnable)  ;
-
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				//using HandlerThread to make handler (message queue) ,send message
+				SubHandlerThread subHandlerThread = new SubHandlerThread("threadone");  			
+				subHandlerThread.start();
+				
 			}
 			
 		}) ;
 		
-		//Handler Lab3
-		findViewById(R.id.buttonHandlerLab3).setOnClickListener(new OnClickListener(){
+		
+		//Handler Lab3.1 child thread get main thread's looper and send message .
+		findViewById(R.id.buttonHandlerLab4).setOnClickListener(new OnClickListener(){
 
 			@Override
 			public void onClick(View v) {
@@ -170,8 +188,26 @@ public class HandlerConceptActivity extends Activity {
 						};
 						lab3Handler.sendMessage(defineNewMessage("Lab3")) ;
 						
-						
-						/*ProcessCaculate() ;
+					}
+					
+				}).start() ;
+			}
+			
+		}) ;
+		
+		//Handler Lab3.2 using looper.prepare() and looper.loop()  .
+		findViewById(R.id.buttonHandlerLab5).setOnClickListener(new OnClickListener(){
+
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				new Thread(new Runnable(){
+					
+					@Override
+					public void run() {
+						// TODO Auto-generated method stub
+						Handler lab3Handler  ;
+						ProcessCaculate() ;
 						Looper.prepare()  ;
 						lab3Handler = new Handler(){
 
@@ -184,7 +220,7 @@ public class HandlerConceptActivity extends Activity {
 						} ;
 						
 						lab3Handler.sendMessage(defineNewMessage("Lab3")) ;
-						Looper.loop() ;*/
+						Looper.loop() ;
 					}
 					
 				}).start() ;

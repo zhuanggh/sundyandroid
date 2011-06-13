@@ -70,7 +70,7 @@ public class AsyncTaskTestActivity extends Activity {
 		protected void onProgressUpdate(Integer... values) {
 			// TODO Auto-generated method stub
 			super.onProgressUpdate(values);
-			//asProgressBar.setProgress(values)
+			asProgressBar.setProgress(values[0]) ;
 		}
 
 
