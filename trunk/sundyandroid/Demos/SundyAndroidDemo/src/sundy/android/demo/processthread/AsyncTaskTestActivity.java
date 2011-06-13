@@ -14,6 +14,7 @@ import sundy.android.demo.R;
 import android.app.Activity;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -69,7 +70,7 @@ public class AsyncTaskTestActivity extends Activity {
 		@Override
 		protected void onProgressUpdate(Integer... values) {
 			// TODO Auto-generated method stub
-			super.onProgressUpdate(values);
+			//super.onProgressUpdate(values);
 			asProgressBar.setProgress(values[0]) ;
 		}
 
@@ -85,7 +86,8 @@ public class AsyncTaskTestActivity extends Activity {
                 HttpEntity entity = response.getEntity();    
                 long length = entity.getContentLength();    
                 InputStream is = entity.getContent();    
-                String s = null;    
+                String s = null;   
+                int toCase = 0 ; 
                 if (is != null) {    
                         ByteArrayOutputStream baos = new ByteArrayOutputStream();    
                         byte[] buf = new byte[128];    
@@ -95,8 +97,9 @@ public class AsyncTaskTestActivity extends Activity {
                                 baos.write(buf, 0, ch);    
                                 count += ch;    
                                 if (length > 0) {    
-                                        // call publishProgress（）update progress     
-                                        publishProgress((int) ((count / (float) length) * 100));    
+                                        // call publishProgress（）update progress
+                                		toCase = (int) ((count / (float) length) * 100) ;
+                                        publishProgress(toCase);
                                 }    
                                 // sleep 100
                                 Thread.sleep(100);    
